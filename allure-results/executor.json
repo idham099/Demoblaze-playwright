@@ -1,0 +1,8 @@
+{
+  "name": "Playwright Local Runner",
+  "type": "Local Machine",
+  "reportName": "Demoblaze.com - UI Test Report",
+  "reportUrl": "https://www.demoblaze.com/index.html",
+  "buildUrl": "http://localhost:8080/allure-report",
+  "buildName": "Local Run by Ainul Idham"
+}

@@ -1,0 +1,2 @@
+Page Load Time: 1810.7000000178814 ms
+DNS Lookup Time: 111.69999998807907 ms

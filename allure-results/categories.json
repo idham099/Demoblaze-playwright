@@ -1,0 +1,17 @@
+[
+  {
+    "name": "App Bugs (Defect)",
+    "messageRegex": "expect\\(page\\)\\.toHaveText",
+    "matchedStatuses": ["failed"]
+  },
+  {
+    "name": "Environment Issues",
+    "messageRegex": "ERR_CONNECTION_REFUSED|timeout|network",
+    "matchedStatuses": ["failed", "broken"]
+  },
+  {
+    "name": "Test Design Issues",
+    "traceRegex": "Error Context: test-results",
+    "matchedStatuses": ["failed", "broken"]
+  }
+]
