@@ -1,2 +1,2 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","4965","Verify successful login using Page Object Model","chromium","Tue Dec 02 11:19:52 WITA 2025","passed","Tue Dec 02 11:19:57 WITA 2025","DemoBlaze UI Testing: Login Flow with POM","","",""
+"","5370","SCENARIO 1: Login Sukses ke DemoBlaze","chromium","Sun Dec 07 16:10:41 WITA 2025","passed","Sun Dec 07 16:10:46 WITA 2025","DemoBlaze UI Testing: Login Flow with POM","","",""

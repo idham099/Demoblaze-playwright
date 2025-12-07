@@ -14,52 +14,30 @@ class LoginPage {
     }
 
     // --- Actions (Fungsi Halaman) ---
-
-    async navigate() {
-        //performance test
-        await this.page.goto('https://www.demoblaze.com/index.html', { waitUntil: 'load' });
-
-        const metrics = await this.page.evaluate(() => {
-            // Ambil entri navigasi utama
+    async openLoginModal() {
+        const metrics = await this.page.evaluate(async () => {
             const [entry] = performance.getEntriesByType('navigation'); 
-            
             if (!entry) return {};
-
-            // Konversi entri menjadi objek JSON untuk akses mudah
             const timing = entry.toJSON();
-            
-            // Hitung metrik yang diinginkan
             const pageLoadTime = timing.loadEventEnd - timing.startTime;
             const dnsLookupTime = timing.domainLookupEnd - timing.domainLookupStart;
-            
-            // Kembalikan objek metrik
             return { pageLoadTime, dnsLookupTime };
         });
+
+        await this.loginLink.click();
 
         return metrics;
 
     }
 
-    async clickLoginLink() {
-        await this.loginLink.click();
-    }
-
-    async login(username, password) {
-        this.page.on('dialog', async dialog => {
-            console.log(`Alert Pop-up Ditemukan: ${dialog.message()}`);
-            await dialog.accept(); // Secara otomatis menekan tombol OK
-        });
-
+    async executeLogin(username, password) {
         await this.usernameInput.fill(username);
         await this.passwordInput.fill(password);
         await this.loginButton.click();
-        
     }
-    
-    // --- Assertion/Verification (Opsional, tapi membantu) ---
-    
+   
     async verifySuccessfulLogin(username) {
-        await this.page.waitForSelector('#nameofuser', { state: 'visible', timeout: 15000 }); // Tunggu max 15 detik
+        await this.page.waitForSelector('#nameofuser', { state: 'visible', timeout: 15000 }); 
         await expect(this.welcomeMessage).toHaveText(`Welcome ${username}`);
     }
 }

@@ -26,7 +26,7 @@ module.exports = defineConfig({
   reporter: [
     ['list'], // Reporter default
     ['allure-playwright', { 
-      outputFolder: process.env.ALLURE_OUTPUT_DIR || 'allure-results', 
+      outputFolder: 'allure-results', 
       detail: true, 
       suiteTitle: false 
     }],
