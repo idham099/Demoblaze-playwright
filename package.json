@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test:all": "npx playwright test --project=chromium --headed",
-    "copy:history": "if exist \"allure-report\\history\" xcopy /E /I /Y \"allure-report\\history\" \"allure-results\\history\"",
-    "report": "npm run test:all && npm run copy:history && npx allure generate --clean allure-results -o allure-report && npx allure open allure-report"
-  },
+    "report": "npm run test:all && npx allure generate --clean allure-results -o allure-report && npx allure open allure-report",
+    "report:clean": "npx playwright test && npx allure generate --clean allure-results -o allure-report && npx allure open allure-report"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",

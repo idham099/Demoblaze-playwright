@@ -1,2 +1,4 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","5370","SCENARIO 1: Login Sukses ke DemoBlaze","chromium","Sun Dec 07 16:10:41 WITA 2025","passed","Sun Dec 07 16:10:46 WITA 2025","DemoBlaze UI Testing: Login Flow with POM","","",""
+"","4655","TC_L003 [Negative]: Logout Sukses.","chromium","Tue Dec 16 16:28:32 WITA 2025","passed","Tue Dec 16 16:28:37 WITA 2025","DemoBlaze UI Testing: Login Flow with POM","","",""
+"","2921","TC_L002 [Negative]: Login Gagal dengan password salah.","chromium","Tue Dec 16 16:28:32 WITA 2025","passed","Tue Dec 16 16:28:35 WITA 2025","DemoBlaze UI Testing: Login Flow with POM","","",""
+"","6136","TC_L001 [Positive]: Login Sukses dengan kredensial yang valid.","chromium","Tue Dec 16 16:28:32 WITA 2025","passed","Tue Dec 16 16:28:39 WITA 2025","DemoBlaze UI Testing: Login Flow with POM","","",""

@@ -1,0 +1,12 @@
+/* Mengganti logo dan mengatur ukuran */
+.side-nav__brand:before {
+    content: url('../custom-theme/Blaze.svg'); 
+    width: 150px; 
+    height: 40px; 
+    display: block;
+}
+
+/* Menyembunyikan teks 'Allure' default di sebelah logo */
+.side-nav__brand-text {
+    display: none;
+}

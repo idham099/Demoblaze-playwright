@@ -1,1 +1,1 @@
-{"reportName":"Demoblaze.com - UI Test Report","testRuns":[],"statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1},"time":{"start":1765095041555,"stop":1765095046925,"duration":5370,"minDuration":5370,"maxDuration":5370,"sumDuration":5370}}
+{"reportName":"Allure Report","testRuns":[],"statistic":{"failed":0,"broken":0,"skipped":0,"passed":3,"unknown":0,"total":3},"time":{"start":1765873712935,"stop":1765873719074,"duration":6139,"minDuration":2921,"maxDuration":6136,"sumDuration":13712}}
