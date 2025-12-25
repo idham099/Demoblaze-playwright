@@ -1,0 +1,117 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - dialog [ref=e2]:
+    - document [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - heading [level=5] [ref=e6]: New message
+          - button [ref=e7]: ×
+        - generic [ref=e9]:
+          - generic [ref=e10]:
+            - text: "Contact Email:"
+            - textbox [ref=e11]
+          - generic [ref=e12]:
+            - text: "Contact Name:"
+            - textbox [ref=e13]
+          - generic [ref=e14]:
+            - text: "Message:"
+            - textbox [ref=e15]
+        - generic [ref=e16]:
+          - button [ref=e17]: Close
+          - button [ref=e18]: Send message
+  - dialog [ref=e19]:
+    - document [ref=e20]:
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - heading [level=5] [ref=e23]: Sign up
+          - button [ref=e24]: ×
+        - generic [ref=e26]:
+          - generic [ref=e27]:
+            - text: "Username:"
+            - textbox [ref=e28]
+          - generic [ref=e29]:
+            - text: "Password:"
+            - textbox [ref=e30]
+        - generic [ref=e31]:
+          - button [ref=e32]: Close
+          - button [ref=e33]: Sign up
+  - dialog [ref=e34]:
+    - document [ref=e35]:
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - heading [level=5] [ref=e38]: Log in
+          - button [ref=e39]: ×
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - text: "Username:"
+            - textbox [ref=e43]
+          - generic [ref=e44]:
+            - text: "Password:"
+            - textbox [ref=e45]
+        - generic [ref=e46]:
+          - button [ref=e47]: Close
+          - button [ref=e48]: Log in
+  - dialog [ref=e49]:
+    - generic [ref=e51]:
+      - generic [ref=e52]:
+        - heading "About us" [level=5] [ref=e53]
+        - button "Close" [ref=e54]: ×
+      - button "Close" [ref=e59]
+  - navigation [ref=e60]:
+    - button "Toggle navigation" [ref=e61]
+    - link "PRODUCT STORE" [ref=e62] [cursor=pointer]:
+      - /url: index.html
+      - img [ref=e63]
+      - text: PRODUCT STORE
+    - list [ref=e65]:
+      - listitem [ref=e66]:
+        - link "Home (current)" [ref=e67] [cursor=pointer]:
+          - /url: index.html
+      - listitem [ref=e68]:
+        - link "Contact" [ref=e69] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e70]:
+        - link "About us" [ref=e71] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e72]:
+        - link "Cart" [ref=e73] [cursor=pointer]:
+          - /url: cart.html
+      - listitem [ref=e74]:
+        - link "Log in" [ref=e75] [cursor=pointer]:
+          - /url: "#"
+      - listitem
+      - listitem
+      - listitem [ref=e76]:
+        - link "Sign up" [ref=e77] [cursor=pointer]:
+          - /url: "#"
+    - generic [ref=e79]:
+      - list [ref=e80]:
+        - listitem [ref=e81]
+        - listitem [ref=e82]
+        - listitem [ref=e83]
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - img "First slide"
+        - img "Second slide" [ref=e87]
+        - generic [ref=e88]:
+          - img "Third slide"
+      - button "Previous" [ref=e89] [cursor=pointer]
+      - button "Next" [ref=e90] [cursor=pointer]
+  - generic [ref=e92]:
+    - generic [ref=e94]:
+      - link "CATEGORIES" [ref=e95] [cursor=pointer]:
+        - /url: ""
+      - link "Phones" [ref=e96] [cursor=pointer]:
+        - /url: "#"
+      - link "Laptops" [ref=e97] [cursor=pointer]:
+        - /url: "#"
+      - link "Monitors" [ref=e98] [cursor=pointer]:
+        - /url: "#"
+    - list [ref=e100]:
+      - listitem [ref=e101]:
+        - button "Previous" [ref=e102]
+      - listitem [ref=e103]:
+        - button "Next" [ref=e104] [cursor=pointer]
+```

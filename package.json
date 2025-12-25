@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:all": "npx playwright test --project=chromium --headed",
+    "test:all": "npx playwright test tests/ui.about.spec.js --project=chromium --headed",
     "report": "npm run test:all && npx allure generate --clean allure-results -o allure-report && npx allure open allure-report",
     "report:clean": "npx playwright test && npx allure generate --clean allure-results -o allure-report && npx allure open allure-report"
-},
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -18,5 +18,8 @@
     "allure-commandline": "^2.34.1",
     "allure-playwright": "^3.4.2",
     "cross-env": "^10.1.0"
+  },
+  "dependencies": {
+    "xlsx": "^0.18.5"
   }
 }

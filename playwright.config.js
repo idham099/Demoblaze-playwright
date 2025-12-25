@@ -35,7 +35,8 @@ module.exports = defineConfig({
   use: {
     // Tentukan Base URL API Demoblaze
     baseURL: 'https://www.demoblaze.com/', 
-    
+    video: 'on-first-retry',
+
     // Konteks untuk API Testing
     trace: 'on-first-retry',
   },
