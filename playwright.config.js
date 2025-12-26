@@ -13,6 +13,7 @@ const { defineConfig, devices } = require('@playwright/test');
  * @see https://playwright.dev/docs/test-configuration
 */
 module.exports = defineConfig({
+  timeout: 60000,
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -36,8 +37,7 @@ module.exports = defineConfig({
     // Tentukan Base URL API Demoblaze
     baseURL: 'https://www.demoblaze.com/', 
     video: 'on-first-retry',
-
-    // Konteks untuk API Testing
+    screenshot: 'only-on-failure',
     trace: 'on-first-retry',
   },
 
