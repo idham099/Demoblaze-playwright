@@ -41,18 +41,58 @@ class CartPage {
     async isProductDisplayed(productName) {
         const item = this.productInCart(productName);
         for (let i = 0; i < 2; i++) {
-        try {
-            // Tunggu baris produk muncul
-            await item.waitFor({ state: 'visible', timeout: 5000 });
-            return await item.isVisible();
-        } catch (e) {
-            if (i === 0) {
-                console.log(`Produk ${productName} belum muncul, mencoba refresh halaman...`);
-                await this.page.reload({ waitUntil: 'domcontentloaded' });
-                await this.page.waitForSelector('#tbodyid tr', { state: 'visible', timeout: 5000 }).catch(() => {});
+            try {
+                await item.waitFor({ state: 'visible', timeout: 5000 });
+                return await item.isVisible();
+            } catch (e) {
+                if (i === 0) {
+                    console.log(`Produk ${productName} belum muncul, mencoba refresh halaman...`);
+                    await this.page.reload({ waitUntil: 'domcontentloaded' });
+                    await this.page.waitForSelector('#tbodyid tr', { state: 'visible', timeout: 5000 }).catch(() => {});
+                }
             }
         }
     }
+
+    async deleteProduct(productName) {
+        const row = this.page.locator('tr', { hasText: productName });
+        const deleteBtn = row.locator('text=Delete');
+        
+        if (await row.count() > 0) {
+            const startTime = Date.now();
+            await deleteBtn.click();
+            await row.waitFor({ state: 'hidden', timeout: 5000 });
+            const duration = Date.now() - startTime;
+            console.log(`Produk ${productName} berhasil dihapus dalam ${duration} ms.`);
+            return { duration };
+        } else {
+            console.log(`Produk ${productName} sudah tidak ada di keranjang, melewati proses delete.`);
+            return { duration: 0 };
+        }
+    }
+
+    async placeOrder(customerData) {
+        await this.page.click('button:has-text("Place Order")');
+        await this.page.waitForSelector('#orderModal', { state: 'visible' });
+        await this.page.fill('#name', customerData.name || "Default Name");
+        await this.page.fill('#country', customerData.country || "Indonesia");
+        await this.page.fill('#city', customerData.city || "Jakarta");
+        await this.page.fill('#card', customerData.card || "123456789");
+        await this.page.fill('#month', customerData.month || "12");
+        await this.page.fill('#year', customerData.year || "2025");
+        const startTime = Date.now();
+        await this.page.click('button:has-text("Purchase")');
+
+        const successMsgLocator = this.page.locator('h2:has-text("Thank you for your purchase!")');
+        await successMsgLocator.waitFor({ state: 'visible', timeout: 5000 });
+        
+        const duration = Date.now() - startTime;
+        const confirmationText = await successMsgLocator.innerText();
+
+        return {
+            message: confirmationText,
+            duration: duration
+        };
     }
 }
 
