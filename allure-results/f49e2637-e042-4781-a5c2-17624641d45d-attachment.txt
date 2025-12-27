@@ -1,0 +1,2 @@
+Scenario: Kartu Kosong
+Response Time: 1250 ms

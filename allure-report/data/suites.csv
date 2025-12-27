@@ -1,2 +1,4 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","9176","Hapus Nokia lumia 1520 dari Keranjang","chromium","Fri Dec 26 17:26:35 WITA 2025","passed","Fri Dec 26 17:26:44 WITA 2025","DemoBlaze: Delete Product","","",""
+"","9146","Negatif Checkout - Kartu Kosong","chromium","Sat Dec 27 14:53:49 WITA 2025","passed","Sat Dec 27 14:53:58 WITA 2025","DemoBlaze UI Testing: Negative Checkout Flow","","",""
+"","9666","Negatif Checkout - Semua Kosong","chromium","Sat Dec 27 14:53:49 WITA 2025","passed","Sat Dec 27 14:53:58 WITA 2025","DemoBlaze UI Testing: Negative Checkout Flow","","",""
+"","9190","Negatif Checkout - Nama Kosong","chromium","Sat Dec 27 14:53:49 WITA 2025","passed","Sat Dec 27 14:53:58 WITA 2025","DemoBlaze UI Testing: Negative Checkout Flow","","",""

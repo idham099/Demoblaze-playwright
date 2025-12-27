@@ -74,15 +74,16 @@ class CartPage {
     async placeOrder(customerData) {
         await this.page.click('button:has-text("Place Order")');
         await this.page.waitForSelector('#orderModal', { state: 'visible' });
-        await this.page.fill('#name', customerData.name || "Default Name");
-        await this.page.fill('#country', customerData.country || "Indonesia");
-        await this.page.fill('#city', customerData.city || "Jakarta");
-        await this.page.fill('#card', customerData.card || "123456789");
-        await this.page.fill('#month', customerData.month || "12");
-        await this.page.fill('#year', customerData.year || "2025");
+        await this.page.fill('#name', String(customerData.name || "Default Name"));
+        await this.page.fill('#country', String(customerData.country || "Indonesia"));
+        await this.page.fill('#city', String(customerData.city || "Jakarta"));
+        await this.page.fill('#card', String(customerData.card || "123456789"));
+        await this.page.fill('#month', String(customerData.month || "12"));
+        await this.page.fill('#year', String(customerData.year || "2025"));
+
         const startTime = Date.now();
         await this.page.click('button:has-text("Purchase")');
-
+        
         const successMsgLocator = this.page.locator('h2:has-text("Thank you for your purchase!")');
         await successMsgLocator.waitFor({ state: 'visible', timeout: 5000 });
         
@@ -91,6 +92,38 @@ class CartPage {
 
         return {
             message: confirmationText,
+            duration: duration
+        };
+    }
+
+    async placeOrderNegative(data) {
+        const placeOrderBtn = this.page.locator('button:has-text("Place Order")');
+        await placeOrderBtn.waitFor({ state: 'visible' });
+        await placeOrderBtn.click();
+
+        await this.page.waitForSelector('#orderModal', { state: 'visible' });
+
+        await this.page.fill('#name', String(data.name || ""));
+        await this.page.fill('#country', String(data.country || ""));
+        await this.page.fill('#city', String(data.city || ""));
+        await this.page.fill('#card', String(data.card || ""));
+        await this.page.fill('#month', String(data.month || ""));
+        await this.page.fill('#year', String(data.year || ""));
+
+        let alertMessage = "";
+        this.page.once('dialog', async dialog => {
+            alertMessage = dialog.message();
+            await dialog.dismiss();
+        });
+
+        const startTime = Date.now();
+        await this.page.click('button:has-text("Purchase")');
+        
+        await this.page.waitForTimeout(1000); 
+        const duration = Date.now() - startTime;
+
+        return {
+            alertMessage: alertMessage,
             duration: duration
         };
     }
