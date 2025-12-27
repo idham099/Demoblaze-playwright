@@ -58,6 +58,7 @@ Hasil eksekusi tes terbaru dapat diakses secara publik. Dashboard ini mencakup t
     npx allure open allure-report
 
 ---
-Author: Ainul idham 
+##
+Dibuat dengan 😭 oleh Ainul idham.
 
 
