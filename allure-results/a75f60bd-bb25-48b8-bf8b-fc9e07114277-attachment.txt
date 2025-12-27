@@ -1,2 +1,0 @@
-Scenario: Semua Kosong
-Response Time: 1120 ms

@@ -24,7 +24,7 @@ test.describe('DemoBlaze UI Testing: Add to Cart Flow', () => {
             await test.step('2. Add to Cart & Cek Alert', async () => {
                 const result = await productPage.clickAddToCart();
                 expect(result.message).toBe(data.expectedAlert);
-                savedAlertScreenshot = result.screenshot;
+                const savedAlertScreenshot = result.screenshot;
 
                 if (savedAlertScreenshot) {
                     await test.info().attach('Alert-Screenshot', {
@@ -37,7 +37,13 @@ test.describe('DemoBlaze UI Testing: Add to Cart Flow', () => {
                     body: productPage.preClickScreenshot,
                     contentType: 'image/png'
                 });
+
+                await test.info().attach('Performance-Metrics', {
+                    body: `Action Duration: ${result.duration} ms`,
+                    contentType: 'text/plain'
+                });
             });
+
         });
     }
 });
