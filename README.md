@@ -60,5 +60,4 @@ Hasil eksekusi tes terbaru dapat diakses secara publik. Dashboard ini mencakup t
 ---
 Author: Ainul idham 
 
-Focus: QA Automation Engineer | Web Testing | CI/CD Integration
 
