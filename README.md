@@ -50,14 +50,15 @@ Hasil eksekusi tes terbaru dapat diakses secara publik. Dashboard ini mencakup t
 
 4. **Exekusi semua Tests**
    ```bash
-    npx playwright test
+    npx playwright test tests
 
 5. **Generate & buka Allure Report**
    ```bash
     npx allure generate allure-results --clean -o allure-report
     npx allure open allure-report
-``
+
 ---
-Author: Ainul idham
+Author: Ainul idham 
+
 Focus: QA Automation Engineer | Web Testing | CI/CD Integration
 
