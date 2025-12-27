@@ -4,15 +4,24 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
       with:
         node-version: 18
+        cache: 'npm'
 
     - name: Install dependencies
       run: npm install
@@ -21,9 +30,22 @@ jobs:
       run: npx playwright install --with-deps
 
     - name: Run Playwright tests
+      # Kita tetap lanjut ke step berikutnya meskipun tes gagal (exit code 1)
+      # agar laporan Allure tetap bisa di-generate.
       run: npx playwright test
+      continue-on-error: true
 
-    - uses: actions/upload-artifact@v4
+    - name: Upload Allure Results (Artifact)
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: allure-results
+        path: allure-results/
+        retention-days: 30
+
+    # Step tambahan jika Anda ingin menggabungkan dengan HTML reporter bawaan
+    - name: Upload Playwright HTML Report
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: playwright-report
