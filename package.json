@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:all": "npx playwright test tests/ui.checkout_negative.spec.js --project=chromium --headed",
+    "test:all": "npx playwright test tests --project=chromium --headed",
     "report": "npm run test:all && npx allure generate --clean allure-results -o allure-report && npx allure open allure-report",
     "report:clean": "npx playwright test && npx allure generate --clean allure-results -o allure-report && npx allure open allure-report"
   },
