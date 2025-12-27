@@ -31,7 +31,7 @@ Hasil eksekusi tes terbaru dapat diakses secara publik. Dashboard ini mencakup t
 ├── .github/workflows/   # Konfigurasi CI/CD (GitHub Actions YAML)
 ├── playwright.config.js # Konfigurasi Engine & Reporters
 └── package.json         # Dependensi & Script Shortcuts
-
+```
 
 ## 🚀 Cara menjalankan di Local
 
@@ -56,7 +56,7 @@ Hasil eksekusi tes terbaru dapat diakses secara publik. Dashboard ini mencakup t
    ```bash
     npx allure generate allure-results --clean -o allure-report
     npx allure open allure-report
-
+``
 ---
 Author: Ainul idham
 Focus: QA Automation Engineer | Web Testing | CI/CD Integration
