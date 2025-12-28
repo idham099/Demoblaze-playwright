@@ -1,4 +1,4 @@
-# 🚀 DemoBlaze : End-to-End Automation Framework
+# 🚀 DemoBlaze : Framework Automation dengan Playwright
 
 [![Playwright Tests](https://github.com/idham099/Demoblaze-playwright/actions/workflows/playwright.yml/badge.svg)](https://github.com/idham099/Demoblaze-playwright/actions)
 [![View Report](https://img.shields.io/badge/View-Live_Report-brightgreen?style=for-the-badge&logo=github)](https://idham099.github.io/Demoblaze-playwright/)
