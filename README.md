@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚀 DemoBlaze : Framework Automation dengan Playwright
 
 [![Playwright Tests](https://github.com/idham099/Demoblaze-playwright/actions/workflows/playwright.yml/badge.svg)](https://github.com/idham099/Demoblaze-playwright/actions)
