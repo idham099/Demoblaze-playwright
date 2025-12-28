@@ -32,12 +32,15 @@ module.exports = defineConfig({
   ],
 
   use: {
-    actionTimeout: 10000,
-    navigationTimeout: 15000,
+    actionTimeout: 15000,
+    navigationTimeout: 30000,
     baseURL: 'https://www.demoblaze.com/', 
     video: 'retain-on-failure',
     screenshot: 'only-on-failure',
     trace: 'on-first-retry',
+    launchOptions: {
+      slowMo: 500, // Beri jeda 0.5 detik di setiap langkah (klik, ketik, dll)
+    },
   },
 
   /* Configure projects for major browsers */

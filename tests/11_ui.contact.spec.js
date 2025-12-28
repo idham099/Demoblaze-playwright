@@ -18,7 +18,10 @@ test.describe('DemoBlaze UI Testing: Contact Flow (Excel DDT)', () => {
             const contactPage = new ContactPage(page);
 
             await test.step('1. Navigasi ke Halaman Utama', async () => {
-                await page.goto('https://www.demoblaze.com/index.html');
+                await page.goto('https://www.demoblaze.com/index.html', { 
+                    waitUntil: 'networkidle', 
+                    timeout: 60000 
+                });
             });
 
             await test.step('2. Kirim Pesan Contact', async () => {

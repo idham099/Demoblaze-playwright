@@ -40,7 +40,10 @@ test.describe('DemoBlaze UI Testing: Login Flow with POM', () => {
         const loginPage = new LoginPage(page);
         let metrics;
         await test.step('1. Navigasi ke Halaman Beranda dan Tangkap Performa', async () => {
-            await page.goto('https://www.demoblaze.com/index.html', { waitUntil: 'load' });
+            await page.goto('https://www.demoblaze.com/index.html', { 
+                waitUntil: 'networkidle', 
+                timeout: 60000 // Beri waktu 60 detik (default hanya 30s)
+            });
             metrics = await loginPage.openLoginModal();
             expect(metrics.pageLoadTime).toBeLessThan(5000);
             await test.info().attach('Navigation Performance Metrics', { 

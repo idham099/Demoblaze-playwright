@@ -13,7 +13,10 @@ test.describe('DemoBlaze: Cart Verification', () => {
             const cartPage = new CartPage(page);
 
             await test.step('1. Persiapan: Tambah Produk', async () => {
-                await page.goto('https://www.demoblaze.com/index.html');
+                await page.goto('https://www.demoblaze.com/index.html', { 
+                    waitUntil: 'networkidle', 
+                    timeout: 60000 
+                });
                 await productPage.selectProductFromHome(data.productName);
             });
 

@@ -1,0 +1,2 @@
+Load Time: 648 ms
+DNS: 0 ms

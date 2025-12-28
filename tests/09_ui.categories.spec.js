@@ -18,7 +18,7 @@ test.describe('DemoBlaze UI Testing: Category Navigation', () => {
             const categoryPage = new CategoryPage(page);
 
             await page.goto('https://www.demoblaze.com/index.html', { 
-                waitUntil: 'domcontentloaded', 
+                waitUntil: 'networkidle', 
                 timeout: 60000 
             });
 

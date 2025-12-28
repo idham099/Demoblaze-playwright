@@ -23,7 +23,10 @@ test.describe('DemoBlaze UI Testing: Negative Checkout Flow', () => {
     const negativeTestData = readDataFromExcel('checkout_negative');
 
     test.beforeEach(async ({ page }) => {
-        await page.goto('https://www.demoblaze.com/index.html');
+        await page.goto('https://www.demoblaze.com/index.html', { 
+            waitUntil: 'networkidle', 
+            timeout: 60000 
+        });
         await page.evaluate(() => {
             localStorage.clear();
             sessionStorage.clear();

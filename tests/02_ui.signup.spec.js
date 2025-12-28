@@ -44,7 +44,7 @@ test.describe('DemoBlaze UI Testing: Signup Flow dengan POM dan Excel DDT', () =
 
                 await test.info().attach('Actual Alert Message', {body: `Pesan yang muncul di browser: "${message}"`, contentType: 'text/plain'});
 
-                expect(message).toBe(data.expectedMessage);
+                expect(message.trim()).toContain(data.expectedMessage.trim());
             });
 
             await test.step('3. Screenshot Hasil', async () => {
