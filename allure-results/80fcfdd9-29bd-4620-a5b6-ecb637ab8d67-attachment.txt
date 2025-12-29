@@ -1,1 +1,0 @@
-Time to load Laptops: 1058 ms

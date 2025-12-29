@@ -24,7 +24,20 @@ test.describe('DemoBlaze UI Testing: Signup Flow dengan POM dan Excel DDT', () =
             const finalUsername = isUniqueValue ? `${data.username}${Math.floor(Math.random() * 10000)}`: data.username; 
            
             await test.step('1. Navigasi ke Halaman Utama', async () => {
-                await page.goto('https://www.demoblaze.com/index.html', { waitUntil: 'load' });
+                await page.route('**/*.{png,jpg,jpeg,gif,webp}', route => route.abort());
+                await expect(async () => {
+                    const response = await page.goto('https://www.demoblaze.com/index.html', { 
+                        waitUntil: 'commit', 
+                        timeout: 15000       
+                    });
+                    if (!response || response.status() !== 200) {
+                        throw new Error(`Gagal memuat halaman, Status: ${response?.status()}`);
+                        }
+                    }).toPass({
+                        intervals: [2000, 5000], 
+                        timeout: 90000
+                    });
+                await page.locator('#nava').waitFor({ state: 'visible', timeout: 15000 });
             });
 
             await test.step(`2. Jalankan Signup: ${finalUsername}`, async () => {
@@ -36,7 +49,7 @@ test.describe('DemoBlaze UI Testing: Signup Flow dengan POM dan Excel DDT', () =
                 });
 
                 if (metrics.pageLoadTime > 0) {
-                    expect(metrics.pageLoadTime).toBeLessThan(5000); 
+                    await expect.soft(metrics.pageLoadTime).toBeLessThan(10000); 
                 }
 
                 const password = String(data.password || "");

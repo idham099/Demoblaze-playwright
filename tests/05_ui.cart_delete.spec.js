@@ -28,7 +28,20 @@ test.describe('DemoBlaze: Delete Product', () => {
     const testData = readDataFromExcel();
 
     test.beforeEach(async ({ page }) => {
-        await page.goto('https://www.demoblaze.com/index.html');
+        await page.route('**/*.{png,jpg,jpeg,gif,webp}', route => route.abort());
+            await expect(async () => {
+                const response = await page.goto('https://www.demoblaze.com/index.html', { 
+                    waitUntil: 'commit', 
+                    timeout: 15000       
+                });
+                if (!response || response.status() !== 200) {
+                    throw new Error(`Gagal memuat halaman, Status: ${response?.status()}`);
+                    }
+                }).toPass({
+                    intervals: [2000, 5000], 
+                    timeout: 90000
+                });
+        await page.locator('#nava').waitFor({ state: 'visible', timeout: 15000 });
         await page.evaluate(() => window.localStorage.clear());
         await page.evaluate(() => window.sessionStorage.clear());
         await page.reload(); 
@@ -40,7 +53,20 @@ test.describe('DemoBlaze: Delete Product', () => {
             const cartPage = new CartPage(page);
 
             await test.step('1. Tambahkan Produk ke Cart', async () => {
-                await page.goto('https://www.demoblaze.com/index.html');
+                await page.route('**/*.{png,jpg,jpeg,gif,webp}', route => route.abort());
+                await expect(async () => {
+                    const response = await page.goto('https://www.demoblaze.com/index.html', { 
+                        waitUntil: 'commit', 
+                        timeout: 15000       
+                    });
+                    if (!response || response.status() !== 200) {
+                        throw new Error(`Gagal memuat halaman, Status: ${response?.status()}`);
+                        }
+                    }).toPass({
+                        intervals: [2000, 5000], 
+                        timeout: 90000
+                    });
+                await page.locator('#nava').waitFor({ state: 'visible', timeout: 15000 });
                 await page.locator(`a.hrefch:has-text("${data.productName}")`).click();
                 
                 const result = await productPage.clickAddToCart();

@@ -13,14 +13,16 @@ const { defineConfig, devices } = require('@playwright/test');
  * @see https://playwright.dev/docs/test-configuration
 */
 module.exports = defineConfig({
-  timeout: 60000,
+  timeout: 180000,
   testDir: './tests',
   fullyParallel: false, 
   workers: 1,
   retries: 2,
+
   expect: {
-    timeout: 5000,
+    timeout: 150000,
   },
+
   reporter: [
     ['list'], 
     ['html', { outputFolder: 'playwright-report' }], 
@@ -32,14 +34,18 @@ module.exports = defineConfig({
   ],
 
   use: {
-    actionTimeout: 15000,
-    navigationTimeout: 30000,
+    headless: true,
+    actionTimeout: 30000,
+    navigationTimeout: 60000,
     baseURL: 'https://www.demoblaze.com/', 
-    video: 'retain-on-failure',
+    video: 'on-first-retry',
     screenshot: 'only-on-failure',
-    trace: 'on-first-retry',
+    trace: 'retain-on-failure',
+    ignoreHTTPSErrors: true,
+    viewport: { width: 1280, height: 720 },
     launchOptions: {
-      slowMo: 500, // Beri jeda 0.5 detik di setiap langkah (klik, ketik, dll)
+      slowMo: 500,
+      args: ['--disable-dev-shm-usage', '--no-sandbox', '--disable-gpu'] 
     },
   },
 

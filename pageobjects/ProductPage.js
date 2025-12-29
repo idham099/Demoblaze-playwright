@@ -32,7 +32,7 @@ class ProductPage {
         const message = dialog.message();
 
         await dialog.accept();
-        const endTime = performance.now(); // Catat waktu selesai
+        const endTime = performance.now(); 
         const duration = Math.round(endTime - startTime);
         const screenshot = await this.page.screenshot({ animations: 'disabled' }).catch(() => null);
         return { message, screenshot, duration };

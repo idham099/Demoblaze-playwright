@@ -1,1 +1,0 @@
-Time to load Phones: 679 ms

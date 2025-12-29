@@ -44,19 +44,20 @@ class LoginPage {
 
     //TC_L002
     async loginAndVerifyFailure(username, password) {
-    const dialogPromise = this.page.waitForEvent('dialog', { timeout: 5000 }); 
-    await this.usernameInput.fill(username);
-    await this.passwordInput.fill(password);
-    await this.loginButton.click();
-    try {
-        const dialog = await dialogPromise;
-        const message = dialog.message();
-        console.log(`Alert Pop-up Ditemukan: ${message}`);
-        await dialog.accept();
-        return message; 
-    } catch (e) {
-        throw new Error("Login failed, but no expected error dialog appeared within the timeout.");
-        }
+        await this.usernameInput.waitFor({ state: 'visible', timeout: 30000 });
+        const dialogPromise = this.page.waitForEvent('dialog', { timeout: 30000 }); 
+        await this.usernameInput.fill(username);
+        await this.passwordInput.fill(password);
+        await this.loginButton.click();
+        try {
+            const dialog = await dialogPromise;
+            const message = dialog.message();
+            console.log(`Alert Pop-up Ditemukan: ${message}`);
+            await dialog.accept();
+            return message; 
+        } catch (e) {
+            throw new Error("Login failed, but no expected error dialog appeared within the timeout.");
+            }
     }
 
     

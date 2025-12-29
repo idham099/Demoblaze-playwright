@@ -19,8 +19,17 @@ class ContactPage {
         });
 
         await this.contactLink.click();
-        await this.emailInput.waitFor({ state: 'visible' });
+        await this.emailInput.waitFor({ 
+            state: 'attached', 
+            timeout: 30000
+        });
         
+        if (!(await this.emailInput.isVisible())) {
+            await this.contactLink.click();
+            await this.page.waitForTimeout(1000); 
+        }
+
+        await this.emailInput.waitFor({ state: 'visible', timeout: 15000 });
         return metrics;
     }
 
@@ -35,9 +44,9 @@ class ContactPage {
 
         this.page.on('dialog', dialogHandler);
 
-        await this.emailInput.fill(email || "");
-        await this.nameInput.fill(name || "");
-        await this.messageInput.fill(message || "");
+        await this.emailInput.fill(email || "", { force: true });
+        await this.nameInput.fill(name || "", { force: true });
+        await this.messageInput.fill(message || "", { force: true });
 
         this.preClickScreenshot = await this.page.screenshot();
 

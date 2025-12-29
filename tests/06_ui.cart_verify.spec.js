@@ -13,10 +13,20 @@ test.describe('DemoBlaze: Cart Verification', () => {
             const cartPage = new CartPage(page);
 
             await test.step('1. Persiapan: Tambah Produk', async () => {
-                await page.goto('https://www.demoblaze.com/index.html', { 
-                    waitUntil: 'networkidle', 
-                    timeout: 60000 
-                });
+                await page.route('**/*.{png,jpg,jpeg,gif,webp}', route => route.abort());
+                await expect(async () => {
+                    const response = await page.goto('https://www.demoblaze.com/index.html', { 
+                        waitUntil: 'commit', 
+                        timeout: 45000       
+                    });
+                    if (!response || response.status() !== 200) {
+                        throw new Error(`Gagal memuat halaman, Status: ${response?.status()}`);
+                        }
+                    }).toPass({
+                        intervals: [5000, 10000], 
+                        timeout: 120000
+                    });
+                await page.locator('#nava').waitFor({ state: 'visible', timeout: 15000 });
                 await productPage.selectProductFromHome(data.productName);
             });
 

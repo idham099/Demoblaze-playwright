@@ -14,7 +14,7 @@ class CategoryPage {
         await menu.waitFor({ state: 'visible' }); 
         await menu.click();
         
-        const item = this.productItem(expectedProductName);
+        const item = this.productItem(expectedProductName).first();
         await item.waitFor({ state: 'visible', timeout: 20000 });
 
         const endTime = await this.page.evaluate(() => performance.now());

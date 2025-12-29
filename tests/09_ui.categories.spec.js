@@ -17,11 +17,21 @@ test.describe('DemoBlaze UI Testing: Category Navigation', () => {
         test(`${data.testCase}: ${data.description}`, async ({ page }) => {
             const categoryPage = new CategoryPage(page);
 
-            await page.goto('https://www.demoblaze.com/index.html', { 
-                waitUntil: 'networkidle', 
-                timeout: 60000 
-            });
-
+            await page.route('**/*.{png,jpg,jpeg,gif,webp}', route => route.abort());
+                await expect(async () => {
+                    const response = await page.goto('https://www.demoblaze.com/index.html', { 
+                        waitUntil: 'commit', 
+                        timeout: 15000       
+                    });
+                    if (!response || response.status() !== 200) {
+                        throw new Error(`Gagal memuat halaman, Status: ${response?.status()}`);
+                        }
+                    }).toPass({
+                        intervals: [2000, 5000], 
+                        timeout: 90000
+                    });
+                await page.locator('#nava').waitFor({ state: 'visible', timeout: 15000 });
+                
             await test.step(`2. Pilih Kategori ${data.categoryName}`, async () => {
                 const metrics = await categoryPage.selectCategory(data.categoryName, data.expectedFirstItem);
 
@@ -30,7 +40,10 @@ test.describe('DemoBlaze UI Testing: Category Navigation', () => {
                     contentType: 'text/plain'
                 });
 
-                const actualName = await categoryPage.productItem(data.expectedFirstItem).innerText();
+                const actualName = await categoryPage.productItem(data.expectedFirstItem)
+                    .filter({ visible: true }) 
+                    .first()                   
+                    .innerText();
                 console.log(actualName);
                 expect(actualName).toBe(data.expectedFirstItem);
 

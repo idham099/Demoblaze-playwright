@@ -21,7 +21,20 @@ test.describe('DemoBlaze: Checkout Flow', () => {
     const testData = readDataFromExcel();
 
     test.beforeEach(async ({ page }) => {
-        await page.goto('https://www.demoblaze.com/index.html');
+        await page.route('**/*.{png,jpg,jpeg,gif,webp}', route => route.abort());
+            await expect(async () => {
+                const response = await page.goto('https://www.demoblaze.com/index.html', { 
+                    waitUntil: 'commit', 
+                    timeout: 45000       
+                });
+                if (!response || response.status() !== 200) {
+                    throw new Error(`Gagal memuat halaman, Status: ${response?.status()}`);
+                    }
+                }).toPass({
+                    intervals: [5000, 10000], 
+                    timeout: 120000
+                });
+            await page.locator('#nava').waitFor({ state: 'visible', timeout: 15000 });
         await page.evaluate(() => {
             localStorage.clear();
             sessionStorage.clear();
@@ -47,18 +60,12 @@ test.describe('DemoBlaze: Checkout Flow', () => {
             });
 
             await test.step('3. Proses Place Order & Performa', async () => {
-                // Fungsi ini mengambil data (name, card, dll) dari kolom Excel
                 const checkoutResult = await cartPage.placeOrder(data);
-
                 expect(checkoutResult.message).toContain('Thank you for your purchase!');
-
-                // Lampirkan metrik performa checkout
                 await test.info().attach(`Perf-Checkout-${data.productName}`, {
                     body: `Transaction Time: ${checkoutResult.duration} ms`,
                     contentType: 'text/plain'
                 });
-
-                // Screenshot bukti konfirmasi
                 await test.info().attach('Confirmation-Receipt', {
                     body: await page.screenshot({ fullPage: true }),
                     contentType: 'image/png'

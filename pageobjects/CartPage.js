@@ -1,3 +1,4 @@
+const { expect } = require('@playwright/test');
 class CartPage {
     constructor(page) {
         this.page = page;
@@ -9,16 +10,25 @@ class CartPage {
     }
 
     async goToCart() {
-        await this.page.goto('https://www.demoblaze.com/cart.html', { 
-            waitUntil: 'commit', 
-            timeout: 10000 
-        });
-
-        await this.page.waitForSelector('#tbodyid tr', { state: 'visible', timeout: 5000 })
+        await this.page.route('**/*.{png,jpg,jpeg,gif,webp}', route => route.abort());
+            await expect(async () => {
+                const response = await this.page.goto('https://www.demoblaze.com/cart.html', { 
+                    waitUntil: 'commit', 
+                    timeout: 15000       
+                });
+                if (!response || response.status() !== 200) {
+                    throw new Error(`Gagal memuat halaman, Status: ${response?.status()}`);
+                    }
+                }).toPass({
+                    intervals: [2000, 5000], 
+                    timeout: 90000
+                });
+        await this.page.locator('#nava').waitFor({ state: 'visible', timeout: 15000 });
+        await this.page.waitForSelector('#tbodyid tr', { state: 'visible', timeout: 10000 })
             .catch(() => console.log("Tabel belum muncul, mungkin cart kosong."));
         
         this.cartScreenshot = await this.page.screenshot({ 
-            timeout: 2000, 
+            timeout: 5000, 
             animations: 'disabled' 
         }).catch(() => null);
         
@@ -42,7 +52,7 @@ class CartPage {
         const item = this.productInCart(productName);
         for (let i = 0; i < 2; i++) {
             try {
-                await item.waitFor({ state: 'visible', timeout: 5000 });
+                await item.waitFor({ state: 'visible', timeout: 10000 });
                 return await item.isVisible();
             } catch (e) {
                 if (i === 0) {

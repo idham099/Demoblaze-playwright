@@ -18,10 +18,37 @@ test.describe('DemoBlaze UI Testing: Contact Flow (Excel DDT)', () => {
             const contactPage = new ContactPage(page);
 
             await test.step('1. Navigasi ke Halaman Utama', async () => {
-                await page.goto('https://www.demoblaze.com/index.html', { 
-                    waitUntil: 'networkidle', 
-                    timeout: 60000 
+                const context = await page.context();
+                await context.clearCookies();
+                await page.evaluate(() => {
+                    if (navigator.serviceWorker && navigator.serviceWorker.getRegistrations) {
+                        navigator.serviceWorker.getRegistrations().then(registrations => {
+                            for (let registration of registrations) { 
+                                registration.unregister(); 
+                            }
+                        });
+                    }
                 });
+                await page.route('**/*', (route) => {
+                    const headers = route.request().headers();
+                    delete headers['if-none-match'];
+                    delete headers['if-modified-since'];
+                    route.continue({ headers });
+                });
+                await page.route('**/*.{png,jpg,jpeg,gif,webp}', route => route.abort());
+                await expect(async () => {
+                    const response = await page.goto('https://www.demoblaze.com/index.html', { 
+                        waitUntil: 'commit', 
+                        timeout: 10000       
+                    });
+                    if (!response || response.status() !== 200) {
+                        throw new Error(`Gagal memuat halaman, Status: ${response?.status()}`);
+                        }
+                    }).toPass({
+                        intervals: [1000, 3000, 5000], 
+                        timeout: 150000
+                    });
+                await page.locator('#nava').waitFor({ state: 'visible', timeout: 20000 });
             });
 
             await test.step('2. Kirim Pesan Contact', async () => {

@@ -1,2 +1,0 @@
-Scenario: Nama Kosong
-Response Time: 1111 ms

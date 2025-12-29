@@ -27,13 +27,16 @@ class SignupPage{
     //Daftar test case
     //TC_L004
     async register(username, password){
-        await this.signupUsername.waitFor({ state: 'visible' });
-        const dialogPromise = this.page.waitForEvent('dialog', { timeout: 10000 });
-        await this.signupUsername.fill(username);
-        await this.signupPassword.fill(password);
+        await this.signupUsername.waitFor({ state: 'visible', timeout: 30000 });
+        await this.page.waitForTimeout(500);
+        const dialogPromise = this.page.waitForEvent('dialog', { timeout: 30000 });
+        await this.signupUsername.fill(username, { force: true, timeout: 30000});
+        await this.signupPassword.fill(password, { force: true, timeout: 30000});
         await this.signupButton.click();
 
-        this.lastStepScreenshot = await this.page.screenshot();
+        this.lastStepScreenshot = await this.page.screenshot({ 
+            timeout: 5000 
+        }).catch(() => null);
         
         try{
             const dialog = await dialogPromise;
