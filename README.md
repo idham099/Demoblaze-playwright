@@ -9,6 +9,9 @@ Proyek ini adalah framework automation pengujian fungsionalitas UI untuk website
 Hasil eksekusi tes terbaru dapat diakses secara publik. Dashboard ini mencakup tren riwayat pengujian, kategori fitur, dan bukti visual untuk setiap test case.
 👉 **[Lihat Allure Test Report](https://idham099.github.io/Demoblaze-playwright/)**
 
+<img width="1919" height="1075" alt="Screenshot 2025-12-30 121601" src="https://github.com/user-attachments/assets/95f5c2c3-2d29-4234-a61e-6bac80aeea8f" />
+
+
 ## 🌟 Fitur Kunci
 * **Page Object Model (POM)**: Arsitektur kode yang terorganisir untuk meningkatkan *reusability* dan kemudahan pemeliharaan.
 * **Data-Driven Testing (DDT)**: Integrasi dengan file Excel (`.xlsx`) untuk manajemen data uji yang fleksibel.
