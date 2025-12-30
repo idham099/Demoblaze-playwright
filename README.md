@@ -22,6 +22,58 @@ Hasil eksekusi tes terbaru dapat diakses secara publik. Dashboard ini mencakup t
 * **Advanced Reporting**: Menggunakan **Allure Report** untuk visualisasi data, grafik tren, dan pengelompokan fitur (Behaviors).
 * **Automated Evidence**: Pengambilan Screenshot (Alert & UI State) serta Video secara otomatis pada setiap langkah krusial.
 
+  ## 🧪 Skenario Pengujian (Test Scenarios)
+
+Berikut adalah daftar skenario pengujian yang diimplementasikan dalam framework ini, mencakup validasi fungsionalitas utama (*Happy Path*) dan penanganan kesalahan (*Negative Path*).
+
+### 1. Registrasi & Login (Identity)
+* **Positif:**
+    * Berhasil mendaftar akun baru dengan username unik (menggunakan generator otomatis).
+    * Berhasil login dengan kredensial valid dan verifikasi nama profil di menu navigasi.
+    * Berhasil logout dan memastikan sesi pengguna telah berakhir.
+* **Negatif:**
+    * Gagal daftar akun jika username sudah terpakai (Alert: "This user already exist.").
+    * Gagal login jika password salah atau username tidak ditemukan (Alert: "Wrong password.").
+
+### 2. Manajemen Produk & Keranjang (Cart)
+* **Positif:**
+    * Memastikan setiap kategori (Phones, Laptops, Monitors) menampilkan daftar produk yang relevan.
+    * Verifikasi detail produk (Nama, Harga, Deskripsi) sesuai dengan data referensi Excel.
+    * Berhasil menambahkan produk ke keranjang dan memvalidasi pesan alert sukses.
+    * Berhasil menghapus produk dari keranjang dan memastikan tabel UI terupdate.
+* **Negatif:**
+    * Mencoba menambahkan produk ke keranjang saat koneksi terputus (Verifikasi mekanisme *retry*).
+
+### 3. Proses Pembayaran (Checkout Flow)
+* **Positif:**
+    * **TC_CH001 (Successful Purchase):** Mengisi formulir "Place Order" dengan data lengkap (Nama, Negara, Kota, Kartu Kredit, dll) dan memverifikasi struk pembelian.
+* **Negatif:**
+    * **TC_CH002 (Missing Name):** Mencoba checkout dengan mengosongkan kolom Nama.
+    * **TC_CH003 (Missing Credit Card):** Mencoba checkout dengan mengosongkan kolom Kartu Kredit.
+    * *Ekspektasi:* Sistem menampilkan alert "Please fill out Name and Creditcard."
+
+### 4. Fitur Informasi & Dukungan (Support)
+* **Positif:**
+    * Berhasil mengirim pesan dukungan melalui formulir "Contact" dengan email valid.
+    * Memastikan modal "About Us" dapat memuat video promosi dengan benar.
+* **Negatif:**
+    * Mengirim formulir kontak dengan format email yang tidak valid atau kolom kosong.
+
+---
+
+## 📊 Matriks Skenario vs File Test
+
+| Kategori | Nama File | Tipe Skenario |
+| :--- | :--- | :--- |
+| Login | `01_ui.login.pom.spec.js` | Positif |
+| Signup | `02_ui.signup.spec.js` | Positif & Negatif |
+| Product | `03_ui.product.spec.js` | Positif |
+| Cart | `04_ui.add_to_cart.spec.js` | Positif |
+| Cart | `05_ui.cart_delete.spec.js` | Positif |
+| Checkout | `07_ui.checkout.spec.js` | Positif |
+| Checkout | `08_ui.checkout_negative.spec.js` | Negatif |
+| Contact | `11_ui.contact.spec.js` | Positif |
+
 ## 🛠️ Tech Stack
 - **Engine**: [Playwright](https://playwright.dev/)
 - **Language**: JavaScript (Node.js)
