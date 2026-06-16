@@ -10,6 +10,8 @@ Hasil eksekusi tes terbaru dapat diakses secara publik. Dashboard ini mencakup t
 👉 **[Lihat Allure Test Report](https://idham099.github.io/Demoblaze-playwright/)**
 
 
+Berikut ini Link Demonya : **https://www.youtube.com/watch?v=04DpSLYXLNA**
+
 <img width="1919" height="1079" alt="Screenshot 2025-12-30 121601" src="https://github.com/user-attachments/assets/7fe36c74-2c60-4f8a-8058-b2c0ea3466c0" />
 
 <img width="1919" height="1075" alt="Screenshot 2025-12-30 121601" src="https://github.com/user-attachments/assets/95f5c2c3-2d29-4234-a61e-6bac80aeea8f" />
