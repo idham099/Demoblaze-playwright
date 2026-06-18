@@ -10,7 +10,8 @@ The results of recent test executions are publicly accessible. This dashboard in
 👉 **[View Allure Test Report](https://idham099.github.io/Demoblaze-playwright/)**
 
 
-Here is the demo link : **https://www.youtube.com/watch?v=04DpSLYXLNA**
+Here is the demo link : **[Demo Test](https://www.youtube.com/watch?v=04DpSLYXLNA)**
+Here is the article : **[Article](https://ainul-idhamid.blogspot.com/2025/12/project-demoblaze-end-to-end-automation.html)**
 
 <img width="1919" height="1079" alt="Screenshot 2025-12-30 121601" src="https://github.com/user-attachments/assets/7fe36c74-2c60-4f8a-8058-b2c0ea3466c0" />
 
