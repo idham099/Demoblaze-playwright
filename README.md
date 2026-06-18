@@ -29,24 +29,24 @@ Following is a list of test scenarios implemented in this framework, covering va
     * Account registration fails if the username is already in use (Alert: "This user already exists.").
     * Login fails if the password is incorrect or the username cannot be found (Alert: "Wrong password.").
 
-### 2. Manajemen Produk & Keranjang (Cart)
-* **Positif:**
-    * Memastikan setiap kategori (Phones, Laptops, Monitors) menampilkan daftar produk yang relevan.
-    * Verifikasi detail produk (Nama, Harga, Deskripsi) sesuai dengan data referensi Excel.
-    * Berhasil menambahkan produk ke keranjang dan memvalidasi pesan alert sukses.
-    * Berhasil menghapus produk dari keranjang dan memastikan tabel UI terupdate.
-* **Negatif:**
-    * Mencoba menambahkan produk ke keranjang saat koneksi terputus (Verifikasi mekanisme *retry*).
+### 2. Product & Cart Management
+* **Positive:**
+    * Ensure each category (Phones, Laptops, Monitors) displays a relevant product list.
+    * Verify product details (Name, Price, Description) match the Excel reference data.
+    * Successfully add a product to the cart and validate the success alert message.
+    * Successfully remove a product from the cart and ensure the UI table is updated.
+* **Negative:**
+    * Attempting to add product to cart while connection is lost (Verifying *retry* mechanism).
 
-### 3. Proses Pembayaran (Checkout Flow)
-* **Positif:**
-    * **TC_CH001 (Successful Purchase):** Mengisi formulir "Place Order" dengan data lengkap (Nama, Negara, Kota, Kartu Kredit, dll) dan memverifikasi struk pembelian.
-* **Negatif:**
-    * **TC_CH002 (Missing Name):** Mencoba checkout dengan mengosongkan kolom Nama.
-    * **TC_CH003 (Missing Credit Card):** Mencoba checkout dengan mengosongkan kolom Kartu Kredit.
-    * *Ekspektasi:* Sistem menampilkan alert "Please fill out Name and Creditcard."
+### 3. Checkout Flow
+* **Positive:**
+    * **TC_CH001 (Successful Purchase):** Fill out the "Place Order" form with complete data (Name, Country, City, Credit Card, etc.) and verify the purchase receipt.
+* **Negative:**
+    * **TC_CH002 (Missing Name):** Try checking out with the Name field blank.
+    * **TC_CH003 (Missing Credit Card):** Try checking out with the Credit Card field blank.
+    * *Expectation:* The system displays the alert "Please fill out Name and Creditcard."
 
-### 4. Fitur Informasi & Dukungan (Support)
+### 4. Information and Support Features
 * **Positif:**
     * Berhasil mengirim pesan dukungan melalui formulir "Contact" dengan email valid.
     * Memastikan modal "About Us" dapat memuat video promosi dengan benar.
