@@ -47,7 +47,7 @@ Following is a list of test scenarios implemented in this framework, covering va
 * **Negative:**
     * **TC_CH002 (Missing Name):** Try checking out with the Name field blank.
     * **TC_CH003 (Missing Credit Card):** Try checking out with the Credit Card field blank.
-    * *Expectation:* The system displays the alert "Please fill out Name and Creditcard."
+    * **Expectation:** The system displays the alert "Please fill out Name and Creditcard."
 
 ### 4. Information and Support Features
 * **Positive:**
