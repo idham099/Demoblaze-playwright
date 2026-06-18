@@ -3,7 +3,7 @@
 [![Playwright Tests](https://github.com/idham099/Demoblaze-playwright/actions/workflows/playwright.yml/badge.svg)](https://github.com/idham099/Demoblaze-playwright/actions)
 [![View Report](https://img.shields.io/badge/View-Live_Report-brightgreen?style=for-the-badge&logo=github)](https://idham099.github.io/Demoblaze-playwright/)
 
-This project is a UI functionality testing automation framework for the **DemoBlaze** website. The framework is built to industry standards to ensure reliability, scalability, and transparent reporting for both the development team and business stakeholders.
+This project is a UI functionality testing automation framework for the **[DemoBlaze](https://www.demoblaze.com/index.html)** website. The framework is built to industry standards to ensure reliability, scalability, and transparent reporting for both the development team and business stakeholders.
 
 ## 📊 Live Report
 The results of recent test executions are publicly accessible. This dashboard includes historical test trends, feature categories, and visual evidence for each test case.
