@@ -50,26 +50,26 @@ Following is a list of test scenarios implemented in this framework, covering va
     * *Expectation:* The system displays the alert "Please fill out Name and Creditcard."
 
 ### 4. Information and Support Features
-* **Positif:**
-    * Berhasil mengirim pesan dukungan melalui formulir "Contact" dengan email valid.
-    * Memastikan modal "About Us" dapat memuat video promosi dengan benar.
-* **Negatif:**
-    * Mengirim formulir kontak dengan format email yang tidak valid atau kolom kosong.
+* **Positive:**
+    * Successfully sent a support message via the "Contact" form with a valid email address.
+    * Ensured the "About Us" modal could load the promotional video correctly.
+* **Negative:**
+    * Submitting a contact form with an invalid email format or empty fields.
 
 ---
 
-## 📊 Matriks Skenario vs File Test
+## 📊 Scenario Matrix vs Test File
 
-| Kategori | Nama File | Tipe Skenario |
+| Category | File Name | Scenario Type |
 | :--- | :--- | :--- |
-| Login | `01_ui.login.pom.spec.js` | Positif |
-| Signup | `02_ui.signup.spec.js` | Positif & Negatif |
-| Product | `03_ui.product.spec.js` | Positif |
-| Cart | `04_ui.add_to_cart.spec.js` | Positif |
-| Cart | `05_ui.cart_delete.spec.js` | Positif |
-| Checkout | `07_ui.checkout.spec.js` | Positif |
-| Checkout | `08_ui.checkout_negative.spec.js` | Negatif |
-| Contact | `11_ui.contact.spec.js` | Positif |
+| Login | `01_ui.login.pom.spec.js` | Positive |
+| Signup | `02_ui.signup.spec.js` | Positive & Negative |
+| Product | `03_ui.product.spec.js` | Positive |
+| Cart | `04_ui.add_to_cart.spec.js` | Positive |
+| Cart | `05_ui.cart_delete.spec.js` | Positive |
+| Checkout | `07_ui.checkout.spec.js` | Positive |
+| Checkout | `08_ui.checkout_negative.spec.js` | Negative |
+| Contact | `11_ui.contact.spec.js` | Positive |
 
 ## 🛠️ Tech Stack
 - **Engine**: [Playwright](https://playwright.dev/)
@@ -78,17 +78,17 @@ Following is a list of test scenarios implemented in this framework, covering va
 - **CI/CD**: GitHub Actions
 - **Data Provider**: XLSX Library
 
-## 🏗️ Struktur Project
+## 🏗️ Project Structure
 ```text
-├── tests/               # File skrip pengujian (.spec.js)
-├── pageobjects/         # Implementasi Page Object Model (Encapsulation UI)
+├── tests/               # Test script file (.spec.js)
+├── pageobjects/         # Implementation of Page Object Model (Encapsulation UI)
 ├── data/                # Test data provider (Excel files)
-├── .github/workflows/   # Konfigurasi CI/CD (GitHub Actions YAML)
-├── playwright.config.js # Konfigurasi Engine & Reporters
-└── package.json         # Dependensi & Script Shortcuts
+├── .github/workflows/   # CI/CD Configuration (GitHub Actions YAML)
+├── playwright.config.js # Engine and Reporters Configuration
+└── package.json         # Dependencies & Script Shortcuts
 ```
 
-## 🚀 Cara menjalankan di Local
+## 🚀 How to run on Local
 
 1. **Clone the repository**
    ```bash
@@ -103,17 +103,17 @@ Following is a list of test scenarios implemented in this framework, covering va
    ```bash
     npx playwright install
 
-4. **Exekusi semua Tests**
+4. **Execute all Tests**
    ```bash
     npx playwright test tests
 
-5. **Generate & buka Allure Report**
+5. **Generate & Open Allure Report**
    ```bash
     npx allure generate allure-results --clean -o allure-report
     npx allure open allure-report
 
 ---
 ##
-Dibuat dengan 😭 oleh Ainul idham.
+Made with 😭 by Ainul Idham.
 
 
