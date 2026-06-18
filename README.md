@@ -3,7 +3,7 @@
 [![Playwright Tests](https://github.com/idham099/Demoblaze-playwright/actions/workflows/playwright.yml/badge.svg)](https://github.com/idham099/Demoblaze-playwright/actions)
 [![View Report](https://img.shields.io/badge/View-Live_Report-brightgreen?style=for-the-badge&logo=github)](https://idham099.github.io/Demoblaze-playwright/)
 
-This project is a UI functionality testing automation framework for the **[DemoBlaze](https://www.demoblaze.com/index.html)** website. The framework is built to industry standards to ensure reliability, scalability, and transparent reporting for both the development team and business stakeholders.
+This project is a UI functionality testing automation framework for the **[DemoBlaze website](https://www.demoblaze.com/index.html)**. The framework is built to industry standards to ensure reliability, scalability, and transparent reporting for both the development team and business stakeholders.
 
 ## 📊 Live Report
 The results of recent test executions are publicly accessible. This dashboard includes historical test trends, feature categories, and visual evidence for each test case.
@@ -20,14 +20,14 @@ Here is the demo link : **https://www.youtube.com/watch?v=04DpSLYXLNA**
 
 Following is a list of test scenarios implemented in this framework, covering validation of core functionality (*Happy Path*) and error handling (*Negative Path*).
 
-### 1. Registrasi & Login (Identity)
-* **Positif:**
-    * Berhasil mendaftar akun baru dengan username unik (menggunakan generator otomatis).
-    * Berhasil login dengan kredensial valid dan verifikasi nama profil di menu navigasi.
-    * Berhasil logout dan memastikan sesi pengguna telah berakhir.
-* **Negatif:**
-    * Gagal daftar akun jika username sudah terpakai (Alert: "This user already exist.").
-    * Gagal login jika password salah atau username tidak ditemukan (Alert: "Wrong password.").
+### 1. Registration & Login (Identity)
+* **Positive:**
+    * Successfully register a new account with a unique username (using the automatic generator).
+    * Successfully log in with valid credentials and verify the profile name in the navigation menu.
+    * Successfully log out and confirm the user session has ended.
+* **Negative:**
+    * Account registration fails if the username is already in use (Alert: "This user already exists.").
+    * Login fails if the password is incorrect or the username cannot be found (Alert: "Wrong password.").
 
 ### 2. Manajemen Produk & Keranjang (Cart)
 * **Positif:**
