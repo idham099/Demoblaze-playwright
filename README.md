@@ -3,30 +3,22 @@
 [![Playwright Tests](https://github.com/idham099/Demoblaze-playwright/actions/workflows/playwright.yml/badge.svg)](https://github.com/idham099/Demoblaze-playwright/actions)
 [![View Report](https://img.shields.io/badge/View-Live_Report-brightgreen?style=for-the-badge&logo=github)](https://idham099.github.io/Demoblaze-playwright/)
 
-Proyek ini adalah framework automation pengujian fungsionalitas UI untuk website **DemoBlaze**. Framework ini dibangun dengan standar industri untuk memastikan reliabilitas, skalabilitas, dan laporan yang transparan bagi tim pengembang maupun pemangku kepentingan bisnis.
+This project is a UI functionality testing automation framework for the **DemoBlaze** website. The framework is built to industry standards to ensure reliability, scalability, and transparent reporting for both the development team and business stakeholders.
 
 ## 📊 Live Report
-Hasil eksekusi tes terbaru dapat diakses secara publik. Dashboard ini mencakup tren riwayat pengujian, kategori fitur, dan bukti visual untuk setiap test case.
-👉 **[Lihat Allure Test Report](https://idham099.github.io/Demoblaze-playwright/)**
+The results of recent test executions are publicly accessible. This dashboard includes historical test trends, feature categories, and visual evidence for each test case.
+👉 **[View Allure Test Report](https://idham099.github.io/Demoblaze-playwright/)**
 
 
-Berikut ini Link Demonya : **https://www.youtube.com/watch?v=04DpSLYXLNA**
+Here is the demo link : **https://www.youtube.com/watch?v=04DpSLYXLNA**
 
 <img width="1919" height="1079" alt="Screenshot 2025-12-30 121601" src="https://github.com/user-attachments/assets/7fe36c74-2c60-4f8a-8058-b2c0ea3466c0" />
 
 <img width="1919" height="1075" alt="Screenshot 2025-12-30 121601" src="https://github.com/user-attachments/assets/95f5c2c3-2d29-4234-a61e-6bac80aeea8f" />
 
+## 🧪 Test Scenarios
 
-## 🌟 Fitur Kunci
-* **Page Object Model (POM)**: Arsitektur kode yang terorganisir untuk meningkatkan *reusability* dan kemudahan pemeliharaan.
-* **Data-Driven Testing (DDT)**: Integrasi dengan file Excel (`.xlsx`) untuk manajemen data uji yang fleksibel.
-* **CI/CD Pipeline**: Integrasi penuh dengan **GitHub Actions** untuk pengujian otomatis pada setiap *push* atau *pull request*.
-* **Advanced Reporting**: Menggunakan **Allure Report** untuk visualisasi data, grafik tren, dan pengelompokan fitur (Behaviors).
-* **Automated Evidence**: Pengambilan Screenshot (Alert & UI State) serta Video secara otomatis pada setiap langkah krusial.
-
-  ## 🧪 Skenario Pengujian (Test Scenarios)
-
-Berikut adalah daftar skenario pengujian yang diimplementasikan dalam framework ini, mencakup validasi fungsionalitas utama (*Happy Path*) dan penanganan kesalahan (*Negative Path*).
+Following is a list of test scenarios implemented in this framework, covering validation of core functionality (*Happy Path*) and error handling (*Negative Path*).
 
 ### 1. Registrasi & Login (Identity)
 * **Positif:**
