@@ -9,13 +9,15 @@ This project is a UI functionality testing automation framework for the **[DemoB
 
 ## 📊 Live Report
 The results of recent test executions are publicly accessible. This dashboard includes historical test trends, feature categories, and visual evidence for each test case.
-👉 **[View Allure Test Report](https://idham099.github.io/Demoblaze-playwright/)**
 
 
 Here is the demo link : **[Demo Test](https://www.youtube.com/watch?v=04DpSLYXLNA)**
 
 
 Here is the article : **[Article](https://ainul-idhamid.blogspot.com/2025/12/project-demoblaze-end-to-end-automation.html)**
+
+View Report : 👉 **[Allure Test Report](https://idham099.github.io/Demoblaze-playwright/)**
+
 
 <img width="1919" height="1079" alt="Screenshot 2025-12-30 121601" src="https://github.com/user-attachments/assets/7fe36c74-2c60-4f8a-8058-b2c0ea3466c0" />
 
