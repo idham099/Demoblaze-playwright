@@ -13,7 +13,7 @@ The results of recent test executions are publicly accessible. This dashboard in
 
 Here is the demo link : 👉 **[Demo Test](https://www.youtube.com/watch?v=04DpSLYXLNA)** | 👉 **[Article](https://ainul-idhamid.blogspot.com/2025/12/project-demoblaze-end-to-end-automation.html)**
 
-QA Documentation & Report : 👉 **[Test Report](https://idham099.github.io/Demoblaze-playwright/)**  | 👉 **[Test plan](https://docs.google.com/document/d/1vc5Duqwbm52PyAFFjxqaGRswX2fVP-ib/edit)**  | 👉 **[Test Document](https://docs.google.com/spreadsheets/d/171pAhMEANrxoKuRXYcs5kV7j7faDtPSE/edit?gid=1327833681#gid=1327833681)**  
+QA Documentation & Report : 👉 **[Live Test Report](https://idham099.github.io/Demoblaze-playwright/)**  | 👉 **[Test plan](https://docs.google.com/document/d/1vc5Duqwbm52PyAFFjxqaGRswX2fVP-ib/edit)**  | 👉 **[Test Document](https://docs.google.com/spreadsheets/d/171pAhMEANrxoKuRXYcs5kV7j7faDtPSE/edit?gid=1327833681#gid=1327833681)**  
 
 
 
