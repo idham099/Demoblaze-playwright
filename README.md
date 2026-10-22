@@ -78,7 +78,7 @@ Following is a list of test scenarios implemented in this framework, covering va
 - **Data Provider**: XLSX Library
 
 ## 🚀 How to run on Local
-1. **Execute all Tests**
+1. **Execute Tests**
    ```bash
     npx playwright test tests
 
